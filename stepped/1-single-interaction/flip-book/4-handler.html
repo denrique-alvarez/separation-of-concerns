@@ -33,7 +33,7 @@
     <script id="handlers">
       const handler = (event) => {
         debugger;
-        const input = event.target.value;
+        const input = event.target.value; // equal to the value of the element that triggered the event. In this case, whatever key is pressed.
         const reversedUppercase = input
           .toUpperCase()
           .split('')
