@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/HackYourFutureBelgium/separation-of-concerns#readme",
   "devDependencies": {
-    "dependency-cruiser": "^10.0.6",
+    "dependency-cruiser": "^10.9.0",
     "graphviz-cli": "^1.0.0",
     "jest": "^27.0.6",
     "misc-utils-of-mine-typescript": "0.0.12",
