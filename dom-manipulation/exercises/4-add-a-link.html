@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
 
     <title>add a link</title>
@@ -14,21 +15,18 @@
     <script src="/.lib/dom-manipulation/test-the-dom.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../style.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <header>
-      <h2>add a link</h2>
+        <h2>add a link</h2>
     </header>
 
     <section class="things-to-study">
-      <div id="side to inspect" class="exercise-output">
-        <div id="expected">
-          <h2>a great tutorial on DOM manipulation:</h2>
-          <a
-            href="https://www.youtube.com/watch?v=0ik6X4DJKCc"
-            expected="_blank"
-            >Mr. Traversy does it again!</a
+        <div id="side to inspect" class="exercise-output">
+            <div id="expected">
+                <h2>a great tutorial on DOM manipulation:</h2>
+                <a href="https://www.youtube.com/watch?v=0ik6X4DJKCc" expected="_blank">Mr. Traversy does it again!</a
           >
         </div>
 
@@ -39,8 +37,11 @@
         <script id="dom-manipulation-script">
           'use strict';
           debugger;
-
           // write me! (... without using cloneNode, that's kind of cheating)
+          const link = document.createElement('a');
+          document.getElementById('actual').appendChild(link);
+          document.getElementById('actual').children[1].innerHTML = 'Mr. Traversy does it again!';
+          document.getElementById('actual').children[1].href = 'https://www.youtube.com/watch?v=0ik6X4DJKCc';
         </script>
       </div>
 
