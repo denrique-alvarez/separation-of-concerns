@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
 
     <title>add a header</title>
@@ -14,60 +15,65 @@
     <script src="/.lib/dom-manipulation/test-the-dom.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../style.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <header>
-      <h2>add a header</h2>
+        <h2>add a header</h2>
     </header>
 
     <section class="things-to-study">
-      <div id="side to inspect" class="exercise-output">
-        <div id="expected">
-          <h1>a list of things</h1>
-          <ul>
-            <li>robots</li>
-            <li>solar systems</li>
-            <li>oil</li>
-          </ul>
+        <div id="side to inspect" class="exercise-output">
+
+            <div id="expected">
+                <h1>a list of things</h1>
+                <ul>
+                    <li>robots</li>
+                    <li>solar systems</li>
+                    <li>oil</li>
+                </ul>
+            </div>
+
+            <div id="actual">
+                <ul>
+                    <li>robots</li>
+                    <li>wrong wrong wrong wrong</li>
+                    <li>oil</li>
+                </ul>
+            </div>
+
+            <script id="dom-manipulation-script">
+                'use strict';
+                debugger;
+                // write me! (... without using cloneNode, that's kind of cheating)
+                const header = document.createElement('h1');
+                header.innerHTML = 'a list of things';
+                document.getElementById('actual').prepend(header);
+                document.getElementById('actual').children[1].children[1].innerHTML = 'solar systems';
+            </script>
         </div>
 
-        <div id="actual">
-          <ul>
-            <li>robots</li>
-            <li>wrong wrong wrong wrong</li>
-            <li>oil</li>
-          </ul>
-        </div>
+        <div id="mocha" class="mocha-output"></div>
 
-        <script id="dom-manipulation-script">
-          'use strict';
-          debugger;
-
-          // write me! (... without using cloneNode, that's kind of cheating)
+        <script id="run the tests!">
+            mocha.setup({
+                ui: 'bdd',
+            });
+            compareElements.attributesToTest = [
+                'nodeName',
+                'innerText',
+                'href',
+                'expected',
+                'children',
+                'childElementCount',
+            ];
+            compareElements(
+                document.getElementById('actual'),
+                document.getElementById('expected'),
+            );
+            mocha.run();
         </script>
-      </div>
-
-      <div id="mocha" class="mocha-output"></div>
-
-      <script id="run the tests!">
-        mocha.setup({
-          ui: 'bdd',
-        });
-        compareElements.attributesToTest = [
-          'nodeName',
-          'innerText',
-          'href',
-          'expected',
-          'children',
-          'childElementCount',
-        ];
-        compareElements(
-          document.getElementById('actual'),
-          document.getElementById('expected'),
-        );
-        mocha.run();
-      </script>
     </section>
-  </body>
+</body>
+
 </html>
