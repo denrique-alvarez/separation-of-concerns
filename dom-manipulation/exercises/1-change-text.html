@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
 
     <title>change the text</title>
@@ -14,48 +15,49 @@
     <script src="/.lib/dom-manipulation/test-the-dom.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../style.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <header>
-      <h2>change the text</h2>
+        <h2>change the text</h2>
     </header>
 
     <section class="things-to-study">
-      <div id="side to inspect" class="exercise-output">
-        <div id="expected">
-          <h1>hi!</h1>
+        <div id="side to inspect" class="exercise-output">
+            <div id="expected">
+                <h1>hi!</h1>
+            </div>
+
+            <div id="actual">
+                <h1>bye!</h1>
+            </div>
+
+            <script id="dom-manipulation-script">
+                'use strict';
+                debugger;
+                // write me! (... without using cloneNode, that's kind of cheating)
+                document.getElementById('actual').children[0].innerHTML = 'hi!';
+            </script>
         </div>
 
-        <div id="actual">
-          <h1>bye!</h1>
-        </div>
+        <div id="mocha" class="mocha-output"></div>
 
-        <script id="dom-manipulation-script">
-          'use strict';
-          debugger;
-
-          // write me! (... without using cloneNode, that's kind of cheating)
+        <script id="run the tests!">
+            mocha.setup({
+                ui: 'bdd',
+            });
+            compareElements.attributesToTest = [
+                'nodeName',
+                'innerText',
+                'childElementCount',
+            ];
+            compareElements(
+                document.getElementById('actual'),
+                document.getElementById('expected'),
+            );
+            mocha.run();
         </script>
-      </div>
-
-      <div id="mocha" class="mocha-output"></div>
-
-      <script id="run the tests!">
-        mocha.setup({
-          ui: 'bdd',
-        });
-        compareElements.attributesToTest = [
-          'nodeName',
-          'innerText',
-          'childElementCount',
-        ];
-        compareElements(
-          document.getElementById('actual'),
-          document.getElementById('expected'),
-        );
-        mocha.run();
-      </script>
     </section>
-  </body>
+</body>
+
 </html>
