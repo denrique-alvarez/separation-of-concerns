@@ -9,7 +9,7 @@ export const saveNoCopiesHandler = () => {
     }
 
     // execute core logic
-
+    saveNoCopies(userInput);
 
     // communicate result to user
     const message = data.noCopies.join(', ');
