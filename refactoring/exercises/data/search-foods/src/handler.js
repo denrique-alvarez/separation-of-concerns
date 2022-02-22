@@ -1,7 +1,7 @@
-import { search } from './utils.js';
+import { search } from './logic.js';
 import { data } from './data.js';
 
-export const searchFoodsHandler = () => {
+export const seachFoodsHandler = () => {
     // read & process user input
     const query = prompt('enter a search query');
     if (query === null || query === '') {
@@ -9,7 +9,7 @@ export const searchFoodsHandler = () => {
     }
 
     // execute core logic
-    search(query);
+    let results = search(data, query);
 
     // communicate result to user
     const message = `foods matching "${query}":${results}`;
