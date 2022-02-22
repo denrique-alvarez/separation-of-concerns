@@ -1,3 +1,3 @@
-import { searchFoodsHandler } from './handler.js';
+import { seachFoodsHandler } from './handler.js';
 
-document.getElementById('begin-search').addEventListener('click', searchFoodsHandler);
+document.getElementById('begin-search').addEventListener('click', seachFoodsHandler);
