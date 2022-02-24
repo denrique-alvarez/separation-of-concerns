@@ -1,2 +1,3 @@
 // this file is the program's Entry Point
-debugger;
+// debugger;
+import '../listeners/listener.js';
